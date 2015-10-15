@@ -20,7 +20,12 @@ public class simpleMIPSAssembler {
             String line = list.get(i);
             listInt = iType.theType(line,iType.checkEncode(line));
 
-            cH.listToHex(listInt,iType.checkEncode(line));
+            /*
+            for(int j=0;j<listInt.size();j++){
+                System.out.println(listInt.get(j));
+            }
+            */
+            System.out.println(cH.listToHex(listInt,iType.checkEncode(line)));
         }
 
 

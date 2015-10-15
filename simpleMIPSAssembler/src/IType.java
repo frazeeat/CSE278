@@ -4,6 +4,7 @@ import java.util.*;
  * Created by Adam on 10/14/2015.
  */
 public class IType {
+    //TODO Make a method that takes incorrect order of lists and orders them correctly
     public char checkEncode(String line){
         /*
          * This method takes in a line. Then finds the index of the first '\n'
@@ -59,19 +60,21 @@ public class IType {
          */
         HashLookup hashLookup = new HashLookup();
         List<Integer> list = new ArrayList<>();
-        LinkedHashMap hash = hashLookup.makeOpHashMap();
+        LinkedHashMap hashOp = hashLookup.makeOpHashMap();
+        LinkedHashMap hashReg = hashLookup.makeRegHashMap();
+
 
         StringTokenizer st = new StringTokenizer(line," ,()[]$");
 
         //Op code into list
         String opString = st.nextToken();
-        Object op = hash.get(opString);
+        Object op = hashOp.get(opString);
         list.add(0,(Integer)op);
 
         String rtString = st.nextToken();
         char a = rtString.charAt(0);
         if(Character.isLetter(a)){
-            Object rt = hash.get(rtString);
+            Object rt = hashReg.get(rtString);
             list.add(1,(Integer)rt);
         }else{
             list.add(1,Integer.parseInt(rtString));
@@ -79,7 +82,7 @@ public class IType {
         String rsString = st.nextToken();
         char b = rsString.charAt(0);
         if(Character.isLetter(b)){
-            Object rs = hash.get(rsString);
+            Object rs = hashReg.get(rsString);
             list.add(2,(Integer)rs);
         }else{
             list.add(2,Integer.parseInt(rsString));
@@ -100,19 +103,20 @@ public class IType {
          */
         HashLookup hashLookup = new HashLookup();
         List<Integer> list = new ArrayList<>();
-        LinkedHashMap hash = hashLookup.makeOpHashMap();
+        LinkedHashMap hashOp = hashLookup.makeOpHashMap();
+        LinkedHashMap hashReg = hashLookup.makeRegHashMap();
 
         StringTokenizer st = new StringTokenizer(line," ,()[]$");
 
         //Op code into list
         String opString = st.nextToken();
-        Object op = hash.get(opString);
+        Object op = hashOp.get(opString);
         list.add(0,(Integer)op);
 
         String rtString = st.nextToken();
         char a = rtString.charAt(0);
         if(Character.isLetter(a)){
-            Object rt = hash.get(rtString);
+            Object rt = hashReg.get(rtString);
             list.add(2,(Integer)rt);
         }else{
             list.add(2,Integer.parseInt(rtString));
@@ -123,7 +127,7 @@ public class IType {
         String rsString = st.nextToken();
         char b = rsString.charAt(0);
         if(Character.isLetter(b)){
-            Object rs = hash.get(rsString);
+            Object rs = hashReg.get(rsString);
             list.add(1,(Integer)rs);
         }else{
             list.add(1,Integer.parseInt(rsString));
@@ -144,19 +148,19 @@ public class IType {
          */
         HashLookup hashLookup = new HashLookup();
         List<Integer> list = new ArrayList<>();
-        LinkedHashMap hash = hashLookup.makeOpHashMap();
-
+        LinkedHashMap hashOp = hashLookup.makeOpHashMap();
+        LinkedHashMap hashReg = hashLookup.makeRegHashMap();
         StringTokenizer st = new StringTokenizer(line," ,()[]$");
 
         //Op code into list
         String opString = st.nextToken();
-        Object op = hash.get(opString);
+        Object op = hashOp.get(opString);
         list.add(0,(Integer)op);
 
         String rtString = st.nextToken();
         char a = rtString.charAt(0);
         if(Character.isLetter(a)){
-            Object rt = hash.get(rtString);
+            Object rt = hashReg.get(rtString);
             list.add(2,(Integer)rt);
         }else{
             list.add(2,Integer.parseInt(rtString));
@@ -166,7 +170,7 @@ public class IType {
         String rsString = st.nextToken();
         char b = rsString.charAt(0);
         if(Character.isLetter(b)){
-            Object rs = hash.get(rsString);
+            Object rs = hashReg.get(rsString);
             list.add(1,(Integer)rs);
         }else{
             list.add(1,Integer.parseInt(rsString));

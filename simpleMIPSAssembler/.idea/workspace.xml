@@ -27,7 +27,7 @@
         <entry file="file://$PROJECT_DIR$/src/simpleMIPSAssembler.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="27" column="77" selection-start-line="27" selection-start-column="77" selection-end-line="27" selection-end-column="77" />
+              <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -41,8 +41,8 @@
       <file leaf-file-name="IType.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/IType.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.18947369">
-              <caret line="6" column="86" selection-start-line="6" selection-start-column="86" selection-end-line="6" selection-end-column="86" />
+            <state vertical-scroll-proportion="6.031579">
+              <caret line="191" column="48" selection-start-line="191" selection-start-column="48" selection-end-line="191" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -52,7 +52,7 @@
         <entry file="file://$PROJECT_DIR$/src/ConversionH.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="67" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="67" />
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -90,8 +90,8 @@
         <option value="$PROJECT_DIR$/src/opCode.java" />
         <option value="$PROJECT_DIR$/src/iType.java" />
         <option value="$PROJECT_DIR$/src/HashLookup.java" />
-        <option value="$PROJECT_DIR$/src/simpleMIPSAssembler.java" />
         <option value="$PROJECT_DIR$/src/ConversionH.java" />
+        <option value="$PROJECT_DIR$/src/simpleMIPSAssembler.java" />
         <option value="$PROJECT_DIR$/src/IType.java" />
       </list>
     </option>
@@ -469,12 +469,12 @@
       <workItem from="1444242069706" duration="108000" />
       <workItem from="1444242255365" duration="4200000" />
       <workItem from="1444850357070" duration="26904000" />
-      <workItem from="1444879545560" duration="12117000" />
+      <workItem from="1444879545560" duration="13396000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43329000" />
+    <option name="totallyTimeSpent" value="44608000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="960" height="1032" extended-state="0" />
@@ -607,7 +607,7 @@
     <entry file="file://$PROJECT_DIR$/src/ConversionH.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="67" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="67" />
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -617,7 +617,7 @@
     <entry file="file://$PROJECT_DIR$/src/simpleMIPSAssembler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="77" selection-start-line="27" selection-start-column="77" selection-end-line="27" selection-end-column="77" />
+          <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
@@ -629,8 +629,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/IType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18947369">
-          <caret line="6" column="86" selection-start-line="6" selection-start-column="86" selection-end-line="6" selection-end-column="86" />
+        <state vertical-scroll-proportion="6.031579">
+          <caret line="191" column="48" selection-start-line="191" selection-start-column="48" selection-end-line="191" selection-end-column="48" />
           <folding />
         </state>
       </provider>

@@ -32,9 +32,10 @@ public class ConversionH {
             return r;
         }
         //TODO when reached with an i-type or j-type. Throws and error.
-        r += adjustedBinary(l.get(3),5);
-        r += adjustedBinary(l.get(4),5);
-        r += adjustedBinary(l.get(5),6);
+        //commented out for debugging
+        //r += adjustedBinary(l.get(3),5);
+        //r += adjustedBinary(l.get(4),5);
+        //r += adjustedBinary(l.get(5),6);
         temp = r;
         r = "0x";
         for(int i = 0; i<temp.length(); i+=4){

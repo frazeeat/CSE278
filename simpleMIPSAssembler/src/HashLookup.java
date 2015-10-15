@@ -13,8 +13,8 @@ public class HashLookup {
         hash.put("or",0);
         hash.put("addi",8);
         hash.put("slti",10);
-        hash.put("andi",13);
-        hash.put("ori",14);
+        hash.put("andi",12);
+        hash.put("ori",13);
         hash.put("lw",35);
         hash.put("sw",43);
         hash.put("beq",4);
@@ -22,7 +22,7 @@ public class HashLookup {
         hash.put("j",2);
         hash.put("jr",0);
         hash.put("sll",0);
-        hash.put("slr",0);
+        hash.put("srl",0);
         return hash;
     }
     public LinkedHashMap makeFunctHashMap(){
@@ -43,7 +43,7 @@ public class HashLookup {
         hash.put("j",0);
         hash.put("jr",8);
         hash.put("sll",0);
-        hash.put("slr",2);
+        hash.put("srl",2);
         return hash;
     }
     public LinkedHashMap makeRegHashMap(){

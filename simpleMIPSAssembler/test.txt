@@ -1,1 +1,17 @@
-addi $a1,$zero,89
+lw $t0, 4($s0)
+sw $a0, 4($s0)
+add $t1, $t0, $0
+sub $t2, $t1, $t0
+addi $t3, $t2, 65535
+or $t4, $t2, $t1
+and $t5, $s1, $s2
+ori $t6, $s3, 65136
+andi $t7, $s4, 354
+slt $t8, $t7, $s5
+slti $t9, $s6, 6512
+sll $s0, $s0, 4
+srl $s7, $s7, 4
+beq $s8, $t5, 4
+j 67108863
+jr $s0
+jal 0

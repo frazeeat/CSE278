@@ -6,32 +6,25 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 
 public class simpleMIPSAssembler {
     public static void main(String[] args){
-        System.out.println("Hello World");
+        System.out.println("Please Enter the text file you wish to convert");
+        Scanner in = new Scanner(System.in);
+        String filename = in.next();
+        filename = filename.trim();
+
+
         simpleMIPSAssembler sma = new simpleMIPSAssembler();
-        IType iType = new IType();
-        ArrayList<String> list = sma.fileRead("test.txt");
-        List<Integer> listInt;
-        ConversionH cH = new ConversionH();
-        for(int i = 0; i<list.size();i++){
-            String line = list.get(i);
-            listInt = iType.theType(line,iType.checkEncode(line));
-
-            /*
-            for(int j=0;j<listInt.size();j++){
-                System.out.println(listInt.get(j));
-            }
-            */
-            System.out.println(cH.listToHex(listInt,iType.checkEncode(line)));
+        List<String> output = sma.makeOutput(filename);
+        try {
+            sma.writer(output);
+        }catch(IOException e){
+            System.out.println("Error: "+e);
         }
-
-
-
-
-
+        System.out.println("The  file is outputed as output.txt");
     }
     public ArrayList<String> fileRead(String fileName) {
 
@@ -77,7 +70,7 @@ public class simpleMIPSAssembler {
          */
         int index;
         List<String> iType = Arrays.asList("addi", "slti", "andi", "ori", "lw", "sw", "beq");
-        List<String> rType = Arrays.asList("add", "sub", "slt", "and", "or", "sll", "slr","jr");
+        List<String> rType = Arrays.asList("add", "sub", "slt", "and", "or", "sll","srl", "s","jr");
         List<String> jType = Arrays.asList("j", "jal");
 
         if (line.indexOf(' ') != -1) {
@@ -99,6 +92,50 @@ public class simpleMIPSAssembler {
     }
     public String getLine(ArrayList<String> list, int index){
         return list.get(index);
+    }
+    public List<String> makeOutput(String fileName){
+        IType iType = new IType();
+        RType rType = new RType();
+        JType jType = new JType();
+        simpleMIPSAssembler sma = new simpleMIPSAssembler();
+        ArrayList<String> listOfInput = sma.fileRead(fileName);
+        List<String> listOfOutput = new ArrayList<>();
+        ConversionH cH = new ConversionH();
+
+        for(int i=0; i<listOfInput.size();i++){
+            String line = listOfInput.get(i);
+
+            if(sma.checkType(listOfInput.get(i)) == 'r'){
+
+                listOfOutput.add(cH.listToHex(rType.theType(line,rType.checkEncode(line)),'r'));
+            }else if(sma.checkType(listOfInput.get(i))=='i'){
+
+                listOfOutput.add(cH.listToHex(iType.theType(line,iType.checkEncode(line)),'i'));
+
+            }else if(sma.checkType(listOfInput.get(i))=='j'){
+
+                listOfOutput.add(cH.listToHex(jType.theType(line,jType.checkEncode(line)),'j'));
+
+            }else{
+                listOfOutput.add(line);
+
+            }
+        }
+        return listOfOutput;
+
+
+    }
+
+    //writer for outputing hex to a file
+    public void writer(List<String> toStore) throws IOException{
+        //creates writer and clears file
+        PrintWriter writer = new PrintWriter("output.txt", "UTF-8");
+        //for each loop to store all the values in the file into the file named output.txt
+        for(String s : toStore)
+            //stores the strings for outputting
+            writer.println(s);
+        //closes the writer and outputs to the file
+        writer.close();
     }
 
 }

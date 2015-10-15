@@ -4,7 +4,6 @@ import java.util.*;
  * Created by Adam on 10/14/2015.
  */
 public class IType {
-    //TODO Make a method that takes incorrect order of lists and orders them correctly
     public char checkEncode(String line){
         /*
          * This method takes in a line. Then finds the index of the first '\n'
@@ -37,14 +36,14 @@ public class IType {
         }
         return 'u';
     }
-    public List<Integer> theType(String line, char type){
-        if(type == 'a'){
+    public List<Integer> theType(String line, char encoding){
+        if(encoding == 'a'){
             return aType(line);
         }
-        if(type == 'b'){
+        if(encoding == 'b'){
             return bType(line);
         }
-        if(type == 'c') {
+        if(encoding == 'c') {
             return cType(line);
         }
         return null;
@@ -168,15 +167,15 @@ public class IType {
         //Op code into list
         String opString = st.nextToken();
         Object op = hashOp.get(opString);
-        list.set(0,(Integer)op);
+        list.set(0, (Integer)op);
 
         String rtString = st.nextToken();
         char a = rtString.charAt(0);
         if(Character.isLetter(a)){
             Object rt = hashReg.get(rtString);
-            list.set(2,(Integer)rt);
+            list.set(1, (Integer)rt);
         }else{
-            list.set(2,Integer.parseInt(rtString));
+            list.set(1, Integer.parseInt(rtString));
         }
 
 
@@ -184,12 +183,12 @@ public class IType {
         char b = rsString.charAt(0);
         if(Character.isLetter(b)){
             Object rs = hashReg.get(rsString);
-            list.set(1,(Integer)rs);
+            list.set(2, (Integer)rs);
         }else{
-            list.set(1,Integer.parseInt(rsString));
+            list.set(2, Integer.parseInt(rsString));
         }
         String immString = st.nextToken();
-        list.set(3,Integer.parseInt(immString));
+        list.set(3, Integer.parseInt(immString));
         return list;
     }
 

@@ -54,12 +54,17 @@ public class IType {
          * a-type is Rt,Rs,imm
          * Returns List<Integer>
          *     list.get(0) = op
-         *     list.get(1) = Rs
-         *     list.get(2) = Rt
+         *     list.get(1) = Rt
+         *     list.get(2) = Rs
          *     list.get(3) = imm
          */
         HashLookup hashLookup = new HashLookup();
         List<Integer> list = new ArrayList<>();
+        //initialize list to NULL
+        list.add(0,null);
+        list.add(1,null);
+        list.add(2,null);
+        list.add(3,null);
         LinkedHashMap hashOp = hashLookup.makeOpHashMap();
         LinkedHashMap hashReg = hashLookup.makeRegHashMap();
 
@@ -69,27 +74,27 @@ public class IType {
         //Op code into list
         String opString = st.nextToken();
         Object op = hashOp.get(opString);
-        list.add(0,(Integer)op);
+        list.set(0, (Integer) op);
 
         String rtString = st.nextToken();
         char a = rtString.charAt(0);
         if(Character.isLetter(a)){
             Object rt = hashReg.get(rtString);
-            list.add(1,(Integer)rt);
+            list.set(2, (Integer) rt);
         }else{
-            list.add(1,Integer.parseInt(rtString));
+            list.add(2,Integer.parseInt(rtString));
         }
         String rsString = st.nextToken();
         char b = rsString.charAt(0);
         if(Character.isLetter(b)){
             Object rs = hashReg.get(rsString);
-            list.add(2,(Integer)rs);
+            list.set(1, (Integer) rs);
         }else{
-            list.add(2,Integer.parseInt(rsString));
+            list.set(1, Integer.parseInt(rsString));
         }
 
         String immString = st.nextToken();
-        list.add(3,Integer.parseInt(immString));
+        list.set(3, Integer.parseInt(immString));
         return list;
     }
     public List<Integer> bType(String line){
@@ -103,6 +108,12 @@ public class IType {
          */
         HashLookup hashLookup = new HashLookup();
         List<Integer> list = new ArrayList<>();
+        //initialize list to NULL
+        list.add(0,null);
+        list.add(1,null);
+        list.add(2,null);
+        list.add(3,null);
+
         LinkedHashMap hashOp = hashLookup.makeOpHashMap();
         LinkedHashMap hashReg = hashLookup.makeRegHashMap();
 
@@ -111,30 +122,27 @@ public class IType {
         //Op code into list
         String opString = st.nextToken();
         Object op = hashOp.get(opString);
-        list.add(0,(Integer)op);
+        list.set(0, (Integer) op);
 
         String rtString = st.nextToken();
         char a = rtString.charAt(0);
         if(Character.isLetter(a)){
             Object rt = hashReg.get(rtString);
-            list.add(2,(Integer)rt);
+            list.set(2, (Integer) rt);
         }else{
-            list.add(2,Integer.parseInt(rtString));
+            list.set(2, Integer.parseInt(rtString));
         }
         String immString = st.nextToken();
-        list.add(3,Integer.parseInt(immString));
+        list.set(3, Integer.parseInt(immString));
 
         String rsString = st.nextToken();
         char b = rsString.charAt(0);
         if(Character.isLetter(b)){
             Object rs = hashReg.get(rsString);
-            list.add(1,(Integer)rs);
+            list.set(1, (Integer) rs);
         }else{
-            list.add(1,Integer.parseInt(rsString));
+            list.set(1, Integer.parseInt(rsString));
         }
-
-
-
         return list;
     }
     public List<Integer> cType(String line){
@@ -148,6 +156,11 @@ public class IType {
          */
         HashLookup hashLookup = new HashLookup();
         List<Integer> list = new ArrayList<>();
+        //initialize list to NULL
+        list.add(0,null);
+        list.add(1,null);
+        list.add(2,null);
+        list.add(3,null);
         LinkedHashMap hashOp = hashLookup.makeOpHashMap();
         LinkedHashMap hashReg = hashLookup.makeRegHashMap();
         StringTokenizer st = new StringTokenizer(line," ,()[]$");
@@ -155,15 +168,15 @@ public class IType {
         //Op code into list
         String opString = st.nextToken();
         Object op = hashOp.get(opString);
-        list.add(0,(Integer)op);
+        list.set(0,(Integer)op);
 
         String rtString = st.nextToken();
         char a = rtString.charAt(0);
         if(Character.isLetter(a)){
             Object rt = hashReg.get(rtString);
-            list.add(2,(Integer)rt);
+            list.set(2,(Integer)rt);
         }else{
-            list.add(2,Integer.parseInt(rtString));
+            list.set(2,Integer.parseInt(rtString));
         }
 
 
@@ -171,15 +184,12 @@ public class IType {
         char b = rsString.charAt(0);
         if(Character.isLetter(b)){
             Object rs = hashReg.get(rsString);
-            list.add(1,(Integer)rs);
+            list.set(1,(Integer)rs);
         }else{
-            list.add(1,Integer.parseInt(rsString));
+            list.set(1,Integer.parseInt(rsString));
         }
         String immString = st.nextToken();
-        list.add(3,Integer.parseInt(immString));
-
-
-
+        list.set(3,Integer.parseInt(immString));
         return list;
     }
 

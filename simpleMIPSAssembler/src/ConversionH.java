@@ -6,6 +6,7 @@ import java.util.List;
  */
 public class ConversionH {
     public String listToHex(List<Integer> l, char type){
+        //TODO Method doesn't give correct length of Hex for i-type
         String r = "", temp = "";
         r += adjustedBinary(l.get(0),6);
         if(type == 'j'){
@@ -30,6 +31,7 @@ public class ConversionH {
             }
             return r;
         }
+        //TODO when reached with an i-type or j-type. Throws and error.
         r += adjustedBinary(l.get(3),5);
         r += adjustedBinary(l.get(4),5);
         r += adjustedBinary(l.get(5),6);
